@@ -11,6 +11,9 @@ from dataclasses import dataclass    #used to directly define class variable
 from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
 
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
+
 @dataclass #This decorator automatically generates special methods like __init__() for the class, based on the class attributes
 class DataIngestionConfig:  #This class holds configuration paths for datafiles. It's used to specify where the train,test,raw datafiles should be stored
 
@@ -50,12 +53,16 @@ class DataIngestion:
         
 
 if __name__ == '__main__':
-    obj=DataIngestion()
-    train_data,test_data=obj.initiate_data_ingestion()
+    obj = DataIngestion()
+    train_data,test_data = obj.initiate_data_ingestion()
     logging.info(f'train_data is {train_data},test_data is {test_data},')
 
-    data_transformation=DataTransformation()
-    data_transformation.initiate_data_transformation(train_data,test_data)
+    data_transformation = DataTransformation()
+    train_arr,test_arr,_ = data_transformation.initiate_data_transformation(train_data,test_data)
+
+    model_trainer = ModelTrainer()
+
+    print(model_trainer.initiate_model_trainer(train_arr,test_arr))
 
             
 
