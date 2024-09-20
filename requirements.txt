@@ -1,4 +1,15 @@
 pandas
 numpy
 seaborn
+ipykernel
+matplotlib
+scikit-learn
+catboost
+xgboost
+dill
+Flask
 -e .
+
+#-e or --editable: # It indicates that the current package should be installed in editable mode along with other dependencies listed in requirements.txt.
+#This means that, instead of copying the package files to the site-packages directory, pip creates a symbolic link to the source code.
+#This way, any changes you make to the source code are immediately reflected without needing to reinstall the package.'''
