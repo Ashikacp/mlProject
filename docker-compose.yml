@@ -1,0 +1,5 @@
+services:
+  app:
+    image: ECR_REGISTRY/students-performance:GITHUB_SHA
+    ports:
+      - "80:5001"
